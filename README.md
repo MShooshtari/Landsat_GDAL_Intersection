@@ -2,7 +2,7 @@
 
 Here is the script for intersecting Landsat NDVAI GeoTiff images with the postal codes point shapefiles using GDAL in python in order to get the NDVI values for all the postal codes in Canada.
 
-In order to get the NDVI values for all the postal codes in Canada, the first step is to "create" the cloud-free, NDVI-calculated Landsat images in Google Earth Engine. There might be algorithms in GEE to upload the postal codes as point shapefiles and calculate the buffer inside the GEE itself. But we tried something different. The link for the GEE code is provided: https://code.earthengine.google.com/cb15521b2bb30450807fccb1ba69b8ba
+In order to get the NDVI values for all the postal codes in Canada, the first step is to "create" the cloud-free, NDVI-calculated Landsat images in Google Earth Engine. There might be algorithms in GEE to upload the postal codes as point shapefiles and calculate the buffer inside the GEE itself. But we tried something different. The link for the GEE code is provided (you need to have a GEE account to see the code): https://code.earthengine.google.com/cb15521b2bb30450807fccb1ba69b8ba
 
 We first export the cloud-free NDVI images in GeoTIFF format in the Google Drive (we could not upload/download enough number of points effeciently), then download them from the Google Drive. Since the resolution of the Landsat is 30 meter, and in order to cover the whole Canada, GEE exports the images as smaller Tiles, instead of one huge image. After downloading the smaller tiles, we would attach them together again on a local computer. The size of the attached image will be around 120 to 130 GB! The python script Merge_Annual_tile.py is for attaching the tiles together.
 
