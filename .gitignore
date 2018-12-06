@@ -1,2 +1,10 @@
 *.tif
 *.csv
+*.shp
+*.dbf
+*.prj
+*.sbn
+*.sbx
+*.cpg
+*.xml
+*.shx

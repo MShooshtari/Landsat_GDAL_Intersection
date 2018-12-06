@@ -179,7 +179,8 @@ def attachPCsAndReorderCols(listOfAreas, year):
     canadaDataDF = pd.concat(listOfAreas)
     canadaDataDF = canadaDataDF.drop(['count', 'fid'], axis=1)
     canadaDataDFYearSpecific = canadaDataDF
-    ##  For MAPLE dataset we do not the next few lines...
+    ##  For datasets without the postalcodes we do not the next few lines.
+    ##  If comment the following lines, we should also comment anything related to postalcodes in the code if necessary.
     headerList = list(canadaDataDF)
     newHeaderList = ['PC'] + list(np.delete(headerList, 2))
     canadaDataDF = canadaDataDF[newHeaderList]
@@ -216,22 +217,8 @@ for bufferSize in bufferSizeList:
 	for year in range (2015, 2016):
 		print(year)
 
-		# inputFilesList = glob.glob(inputFolder + '/Canada_NDVI_'+str(year)+'-*.tif')
-		# inputString = ''
-		# for inputFile in inputFilesList:
-		# 	inputString += inputFile + ' '
-
-		# commandInput = 'python gdal_merge.py -o out.tif ' + inputString
-		# os.system(commandInput)
-		# print(commandInput)
-		# exit()
-
 		canadaInputFile = 'Landsat_2015.tif'
 		raster_path = canadaInputFile
-
-		# startYearString = str(year-2)
-		# endYearString = str(year)
-		# raster_path = 'PM25_Data/GWR_PM25_NA_'+startYearString+'01_'+endYearString+'12-RH35-NoNegs.asc'
 
 		eastStats = zonal_stats(eastVectorPath, raster_path)
 		westStats = zonal_stats(westVectorPath, raster_path)
